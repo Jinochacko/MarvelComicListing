@@ -46,7 +46,12 @@ const HeadActions = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 30%;
+  width: 32%;
+`;
+
+const CloseFavWrap = styled.span`
+  align-items: center;
+  display: flex;
 `;
 
 interface FavouritesProps {
@@ -78,9 +83,9 @@ export const Favourites = ({ onClose }: FavouritesProps) => {
         />
         <HeadActions>
           <Label text={texts.clearAll} onClick={clearAll} fontWeight="bold" />
-          <span onClick={() => onClose(false)}>
+          <CloseFavWrap onClick={() => onClose(false)}>
             <Image src={images.closeBlack} />
-          </span>
+          </CloseFavWrap>
         </HeadActions>
       </FavHeader>
       {favourites.length > 0 ? (

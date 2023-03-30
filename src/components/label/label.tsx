@@ -16,7 +16,6 @@ interface LabelStyledProps {
 }
 
 const LabelStyled = styled.label<LabelStyledProps>`
-  border-radius: 30%;
   color: ${(props) => props.color ?? "inherit"};
   font-size: ${(props) => props.fontSize ?? "inherit"};
   font-weight: ${(props) => props.fontWeight ?? "inherit"};

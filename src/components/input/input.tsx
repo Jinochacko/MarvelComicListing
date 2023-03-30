@@ -12,11 +12,12 @@ interface TextBoxProps {
 }
 
 const TextBox = styled.input<TextBoxProps>`
-  border-radius: 1rem;
+  border-radius: 80px;
   border: 0;
   outline: none;
   padding: 0.5rem 1.5rem;
   font-style: ${(props) => (props.isItalic ? "italic" : "inherit")};
+  height: 44px;
 `;
 
 export const Input = ({

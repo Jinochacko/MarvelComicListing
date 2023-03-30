@@ -4,7 +4,7 @@ import { styles } from "../../constants/style";
 import { texts } from "../../constants/text";
 
 const FooterArea = styled.footer`
-  height: 7vh;
+  height: calc(7vh + 2px);
   background: ${styles.blackColor};
   margin-top: -2px;
 `;
@@ -17,7 +17,10 @@ const Container = styled.div`
   align-items: center;
   height: 100%;
   button {
-    width: 15%;
+    font-family: Roboto;
+    font-size: 14;
+    text-transform: uppercase;
+    width: 150px;
   }
 `;
 

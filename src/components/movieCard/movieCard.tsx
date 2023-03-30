@@ -8,15 +8,17 @@ import { Image } from "../image/image";
 interface MoviesCardProps {
   movie: MoviesItem;
   addToFavourite: (movie: MoviesItem) => void;
+  removeFavourite: (movie: MoviesItem) => void;
   isFavourite: boolean;
   loadDetails: (x: number, y: number, movie: MoviesItem) => void;
 }
 
 const CardContainer = styled.article`
-  height: calc(100% / 2);
+  height: calc(100% / 1.92);
   padding: 5px;
   float: left;
   width: calc(100% / 6);
+  min-height: 250px;
 `;
 
 const FullSize = styled.div`
@@ -61,6 +63,7 @@ const MovieTitle = styled.div`
 export const MovieCard = ({
   movie,
   addToFavourite,
+  removeFavourite,
   loadDetails,
   isFavourite,
 }: MoviesCardProps) => {
@@ -70,7 +73,7 @@ export const MovieCard = ({
     const bodyHeight = document.getElementsByTagName("body")[0].clientHeight;
     const bodyWidth = document.getElementsByTagName("body")[0].clientWidth;
     if (clientY > bodyHeight / 2) {
-      clientY = clientY - bodyHeight * 0.4;
+      clientY = clientY - 470;
     } else {
       clientY = clientY - 200;
     }
@@ -95,7 +98,11 @@ export const MovieCard = ({
                 onClick={(e) => {
                   e.preventDefault();
                   e.stopPropagation();
-                  addToFavourite(movie);
+                  if (isFavourite) {
+                    removeFavourite(movie);
+                  } else {
+                    addToFavourite(movie);
+                  }
                 }}
               >
                 <Image src={isFavourite ? images.favIconFilled : images.fav} />

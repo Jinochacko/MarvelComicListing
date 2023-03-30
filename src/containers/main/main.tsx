@@ -51,11 +51,21 @@ export const Main = ({ headerHeight, hasMoreRecoreds }: MainProps) => {
   const dispatch = useAppDispatch();
   const favourites = useAppSelector(favouritesList);
   const favouritesIds = favourites.map((item) => item.id);
+
   const addToFavourite = (movie: MoviesItem) => {
     const items = [...favourites];
     const index = items.findIndex((item) => item.id === movie.id);
     if (index === -1) {
       items.push(movie);
+      dispatch(setState({ favourites: items }));
+    }
+  };
+
+  const removeFavourite = (movie: MoviesItem) => {
+    const items = [...favourites];
+    const index = items.findIndex((item) => item.id === movie.id);
+    if (index !== -1) {
+      items.splice(index, 1);
       dispatch(setState({ favourites: items }));
     }
   };
@@ -75,6 +85,7 @@ export const Main = ({ headerHeight, hasMoreRecoreds }: MainProps) => {
             {movies.length > 0 &&
               movies.map((movie, index) => (
                 <MovieCard
+                  removeFavourite={removeFavourite}
                   addToFavourite={addToFavourite}
                   key={`movie-card${index}`}
                   movie={movie}

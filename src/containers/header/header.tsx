@@ -14,7 +14,7 @@ interface HeaderProps {
 
 const HeaderContainer = styled.header`
   background: ${styles.redColor};
-  padding: 1.6rem 0;
+  padding: 2.1% 0;
 `;
 
 const LogoContainer = styled.section`
@@ -27,12 +27,14 @@ const LogoContainer = styled.section`
 
 const InputWrapper = styled.div`
   width: 50%;
-  margin-top: 1rem;
+  margin-top: 2.2%;
   display: flex;
   position: relative;
   align-items: center;
   input {
     width: 100%;
+    font-size: 14px;
+    font-family: roboto;
   }
 `;
 
@@ -92,7 +94,8 @@ export const Header = ({
             text={texts.headerFavourites}
             onClick={() => onFavClick(true)}
             color={styles.white}
-            fontSize="17px"
+            fontSize="14px"
+            fontWeight="bold"
           />
           <span onClick={() => onFavClick(true)}>
             <Image src={images.fav} />

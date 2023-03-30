@@ -7,4 +7,10 @@ export const texts = {
   watchNow: "Watch Now",
   prevButton: "Previous Page",
   nextButton: "Next Page",
+  genre: "Genre",
+  length: "Length",
+  price: "Price",
+  public: "Public",
+  genrePlaceholder: "Animation",
+  lengthPlaceholder: "120min",
 };
